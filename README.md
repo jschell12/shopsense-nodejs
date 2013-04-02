@@ -17,7 +17,7 @@ Include it in you nodejs application:
     var ss = require("shopsense");
 
 ## Documentation
-Will update thise section or add some wiki pages when the package has been completed.
+Will update this section or add some wiki pages when the package has been completed.
 
 ## Bugs
 
