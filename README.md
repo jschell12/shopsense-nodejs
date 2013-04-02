@@ -1,4 +1,4 @@
-# shopsense-nodejs - A nodejs interface for the ShopStyle API
+# shopsense-nodejs - A nodejs interface for the ShopSense API
 
 ### Description
 
@@ -23,7 +23,7 @@ Will update thise section or add some wiki pages when the package has been compl
 
 ## Bugs
 
-Please report any bugs found in Shopsense-nodejs [here](https://github.com/jschell12/shopsense-nodejs/issues), we appreciate your help improving Shopsnese-nodejs
+Please report any bugs found in sopsense-nodejs [here](https://github.com/jschell12/shopsense-nodejs/issues), we appreciate your help improving shopsense-nodejs
 
 
 ### Suggestions

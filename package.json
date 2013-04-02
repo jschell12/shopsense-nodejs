@@ -1,0 +1,37 @@
+{
+  "name": "shopsense",
+  "version": "0.0.1",
+  "description": "Shopsense API nodejs client.",
+  "author": {
+    "name": "Josh Schell",
+    "email": "jschell12@gmail.com",
+    "url": "http://www.schellster.com/"
+  },
+  "homepage": "http://github.com/jschell12/shopsense-nodejs/wiki",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jschell12/shopsense-nodejs.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jschell12/shopsense-nodejs/issues"
+  },
+  "main": "./lib/passport",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": [
+    "shopsense"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "~0.3.1"
+  },
+  "dependencies": {
+    "future": "~2.3.1"
+  }
+}
