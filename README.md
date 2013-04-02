@@ -4,9 +4,7 @@
 
 This package provides an easy to use interface for the
 [ShopStyle API](https://shopsense.shopstyle.com/page/ShopSenseHome) commonly known as ShopSense.
-shopsense-nodejs makes it convenient to  
-access the [ShopStyle API](https://shopsense.shopstyle.com/page/ShopSenseHome) 
-from your nodejs application.
+shopsense-nodejs makes it convenient to access the [ShopStyle API](https://shopsense.shopstyle.com/page/ShopSenseHome) from your nodejs application.
 
 ## Installation
 
