@@ -1,5 +1,4 @@
 var nock = require('nock');
-Future = require('future');
 var ShopSense = require("../lib/shopsense.js").ShopSense;
 
 module.exports = {
@@ -30,11 +29,9 @@ module.exports = {
         });
        
         var future = ss.brands();
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/brands?pid=uid4384-22459372-1&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "brands host ok");
-            test.equal(options.path, path, "brands path ok");
+        var urlActual = 'http://api.shopstyle.com/api/v2/brands?pid=uid4384-22459372-1';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "brands url ok");
             test.equal(data, testData, "brands data ok");
             test.done();
         });
@@ -48,13 +45,14 @@ module.exports = {
             future.deliver(options, testData);
         });
     
-        var cat = 2, depth = 1;
-        var future = ss.categories(cat, depth);
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/categories?pid=uid4384-22459372-1&cat=2&depth=1&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "categories host ok");
-            test.equal(options.path, path, "categories path ok");
+        var params = {
+            cat: 2, 
+            depth: 1        
+        };
+        var future = ss.categories(params);
+        var urlActual = 'http://api.shopstyle.com/api/v2/categories?pid=uid4384-22459372-1&cat=2&depth=1';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "categories url ok");
             test.equal(data, testData, "categories data ok");
             test.done();
         });
@@ -69,11 +67,9 @@ module.exports = {
         });
        
         var future = ss.colors();
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/colors?pid=uid4384-22459372-1&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "colors host ok");
-            test.equal(options.path, path, "colors path ok");
+        var urlActual = 'http://api.shopstyle.com/api/v2/colors?pid=uid4384-22459372-1';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "colors url ok");
             test.equal(data, testData, "colors data ok");
             test.done();
         });
@@ -89,11 +85,9 @@ module.exports = {
         });
        
         var future = ss.product(testId);
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/products/12345?pid=uid4384-22459372-1&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "product host ok");
-            test.equal(options.path, path, "product path ok");
+        var urlActual = 'http://api.shopstyle.com/api/v2/products/12345?pid=uid4384-22459372-1';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "product url ok");
             test.equal(data, testData, "product data ok");
             test.done();
         });
@@ -103,19 +97,20 @@ module.exports = {
         var apiVersion = 'v2';
         
         var testData = {"test":"test"};
-        var fts = "red dress";
-        var offset = "0";
-        var limit = "10";
+        
+        var params = {
+            fts: "red dress",
+            offset: "0",
+            limit: "10"
+        };
         var ss = new ShopSense(pid, apiVersion, function(options, future){
             future.deliver(options, testData);
         });
        
-        var future = ss.productSearch(fts, offset, limit);
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/products?pid=uid4384-22459372-1&fts=red%20dress&offset=0&limit=10&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "productSearch host ok");
-            test.equal(options.path, path, "productSearch path ok");
+        var future = ss.productSearch(params);
+        var urlActual = 'http://api.shopstyle.com/api/v2/products?pid=uid4384-22459372-1&fts=red%20dress&offset=0&limit=10';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "productSearch url ok");
             test.equal(data, testData, "productSearch data ok");
             test.done();
         });
@@ -125,18 +120,18 @@ module.exports = {
         var apiVersion = 'v2';
         
         var testData = {"test":"test"};
-        var filters = "red dress";
-        var flr = "0";
+        var params = {
+            filters: "red dress",
+            floor: "0"
+        };
         var ss = new ShopSense(pid, apiVersion, function(options, future){
             future.deliver(options, testData);
         });
        
-        var future = ss.productsHistogram(filters, flr);
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/products/histogram?pid=uid4384-22459372-1&filters=red%20dress&floor=0&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "productsHistogram host ok");
-            test.equal(options.path, path, "productsHistogram path ok");
+        var future = ss.productsHistogram(params);
+        var urlActual = 'http://api.shopstyle.com/api/v2/products/histogram?pid=uid4384-22459372-1&filters=red%20dress&floor=0';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "productsHistogram url ok");
             test.equal(data, testData, "productsHistogram data ok");
             test.done();
         });
@@ -151,11 +146,9 @@ module.exports = {
         });
        
         var future = ss.retailers();
-        var host = 'http://api.shopstyle.com';
-        var path = '/api/v2/retailers?pid=uid4384-22459372-1&';
-        future.when (function (options, data) {
-            test.equal(options.host, host, "retailers host ok");
-            test.equal(options.path, path, "retailers path ok");
+        var urlActual = 'http://api.shopstyle.com/api/v2/retailers?pid=uid4384-22459372-1';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "retailers url ok");
             test.equal(data, testData, "retailers data ok");
             test.done();
         });
