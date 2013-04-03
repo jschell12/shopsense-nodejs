@@ -15,7 +15,10 @@
   "bugs": {
     "url": "http://github.com/jschell12/shopsense-nodejs/issues"
   },
-  "main": "./lib/passport",
+  "main": "./lib/shopsense",
+  "bin": {
+    "shopsense": "./bin/shopsense"
+  },
   "licenses": [
     {
       "type": "MIT",

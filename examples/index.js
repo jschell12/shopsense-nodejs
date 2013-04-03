@@ -1,16 +1,15 @@
 var ShopSense = require("../lib/shopsense.js").ShopSense;
-var httpClient = require("../lib/httpclient.js");
 
 var pid = 'uid4384-22459372-1';
 var apiVersion = 'v2';
-var ss = new ShopSense(pid, apiVersion, httpClient);
-/*
+var ss = new ShopSense(pid, apiVersion);
+
 console.log(" ");
 console.log("brands");
 ss.brands().when(function(d){
     console.log(d.brands[0]);
 });
-
+/*
 console.log(" ");
 console.log("categories");
 ss.categories({
