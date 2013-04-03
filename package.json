@@ -17,7 +17,7 @@
   },
   "main": "./lib/shopsense",
   "bin": {
-    "shopsense": "./bin/shopsense"
+    "shopsense": "./bin/index"
   },
   "licenses": [
     {
