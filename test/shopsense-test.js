@@ -1,4 +1,3 @@
-var nock = require('nock');
 var ShopSense = require("../lib/shopsense.js").ShopSense;
 
 module.exports = {
@@ -6,7 +5,6 @@ module.exports = {
         callback();
     },
     tearDown: function (callback) {
-        // clean up
         callback();
     },
     'Testing ShopSense constructor' : function(test) {
