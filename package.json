@@ -32,6 +32,7 @@
     "grunt-contrib-watch": "~0.3.1"
   },
   "dependencies": {
-    "future": "~2.3.1"
+    "future": "~2.3.1",
+    "request": "~2.16.6"
   }
 }
