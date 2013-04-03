@@ -18,7 +18,7 @@ Include it in you nodejs application:
 
 ## Examples
 
-    var ShopSense = require("shopsense").ShopSense;
+    var ShopSense = require("shopsense");
     var request = require('request');
     
     var httpClient = function(url, future){
