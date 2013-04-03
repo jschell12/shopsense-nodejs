@@ -16,9 +16,6 @@
     "url": "http://github.com/jschell12/shopsense-nodejs/issues"
   },
   "main": "./lib/shopsense",
-  "bin": {
-    "shopsense": "./bin/index"
-  },
   "licenses": [
     {
       "type": "MIT",
