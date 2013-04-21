@@ -1,6 +1,6 @@
 var ShopSense = require("../lib/shopsense.js").ShopSense;
 
-var pid = 'uid4384-22459372-1';
+var pid = '<your-partner-id-here>';
 var apiVersion = 'v2';
 var ss = new ShopSense(pid, apiVersion);
 
