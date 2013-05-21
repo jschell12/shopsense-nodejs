@@ -88,7 +88,7 @@ Will update this section or add some wiki pages when the package has been comple
 
 ## Bugs
 
-Please report any bugs found in sopsense-nodejs [here](https://github.com/jschell12/shopsense-nodejs/issues). I appreciate your help improving shopsense-nodejs
+Please report any bugs found in shopsense-nodejs [here](https://github.com/jschell12/shopsense-nodejs/issues). I appreciate your help improving shopsense-nodejs
 
 
 ### Suggestions
