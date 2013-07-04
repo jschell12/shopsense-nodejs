@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: ['lib/*.js', 'test/*-test.js'],
+        files: ['src/*.js', 'test/*-test.js'],
         tasks: ['nodeunit'],
         options: {
           interrupt: true
