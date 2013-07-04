@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 var path = require('path');
 var fs = require('fs');
-var src = path.join(path.dirname(fs.realpathSync(__filename)), '../src');
-require(src + '/shopsense.js');
+var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+require(lib + '/shopsense.js');

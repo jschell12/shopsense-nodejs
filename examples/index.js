@@ -1,26 +1,14 @@
-var ShopSense = require("../src/shopsense.js").ShopSense;
+var ShopSense = require("../lib/shopsense.js").ShopSense;
 
-var pid = 'uid4384-22459372-1';
+var pid = '<your-partner-id-here>';
 var apiVersion = 'v2';
 var ss = new ShopSense(pid, apiVersion);
 
-
 console.log(" ");
-console.log("productSearch");
-ss.productSearch({
-    fts: "red dress",
-    offset: "0",
-    limit: "10"
-}).when(function(d){
-    console.log(d.products[0]);
+console.log("brands");
+ss.brands().when(function(d){
+    console.log(d.brands[0]);
 });
-
-
-// console.log(" ");
-// console.log("brands");
-// ss.brands().when(function(d){
-//     console.log(d.brands[0]);
-// });
 /*
 console.log(" ");
 console.log("categories");

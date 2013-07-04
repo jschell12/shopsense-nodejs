@@ -1,4 +1,4 @@
-var ShopSense = require("../src/shopsense.js").ShopSense;
+var ShopSense = require("../lib/shopsense.js").ShopSense;
 
 module.exports = {
     setUp: function (callback) {

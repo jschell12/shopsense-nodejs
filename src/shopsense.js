@@ -1,3 +1,4 @@
+var Future = require('future');
 var httpClient = require("./httpclient.js");
 
 var ShopSense = (function () {
@@ -81,8 +82,9 @@ var ShopSense = (function () {
             return future;
         },
         _get: function(url, params){
+            var future = new Future();
             url += this._serialize(params);
-            _httpClient(url);
+            _httpClient(url, future);
             return future;
         },
         product: function(id) {
