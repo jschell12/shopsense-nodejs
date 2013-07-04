@@ -1,4 +1,5 @@
-var ShopSense = require("../lib/shopsense.js").ShopSense;
+var ShopSense = require("../src/shopsense.js").ShopSense;
+
 
 module.exports = {
     setUp: function (callback) {
@@ -107,6 +108,60 @@ module.exports = {
        
         var future = ss.productSearch(params);
         var urlActual = 'http://api.shopstyle.com/api/v2/products?pid=uid1234-12341234-1&fts=red%20dress&offset=0&limit=10';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "productSearch url ok");
+            test.equal(data, testData, "productSearch data ok");
+            test.done();
+        });
+    },
+    'Testing ShopSense productsSearch with one filter' : function(test){
+        var pid = 'uid1234-12341234-1';
+        var apiVersion = 'v2';
+        
+        var testData = {"test":"test"};
+        
+        var params = {
+            fts: "red dress",
+            fl: [
+                "b123"
+            ],
+            offset: "0",
+            limit: "10"
+        };
+        var ss = new ShopSense(pid, apiVersion, function(options, future){
+            future.deliver(options, testData);
+        });
+       
+        var future = ss.productSearch(params);
+        var urlActual = 'http://api.shopstyle.com/api/v2/products?pid=uid1234-12341234-1&fts=red%20dress&fl=b123&offset=0&limit=10';
+        future.when (function (url, data) {
+            test.equal(url, urlActual, "productSearch url ok");
+            test.equal(data, testData, "productSearch data ok");
+            test.done();
+        });
+    },
+
+    'Testing ShopSense productsSearch with multiple filters' : function(test){
+        var pid = 'uid1234-12341234-1';
+        var apiVersion = 'v2';
+        
+        var testData = {"test":"test"};
+        
+        var params = {
+            fts: "red dress",
+            fl: [
+                "b123",
+                "r321"
+            ],
+            offset: "0",
+            limit: "10"
+        };
+        var ss = new ShopSense(pid, apiVersion, function(options, future){
+            future.deliver(options, testData);
+        });
+       
+        var future = ss.productSearch(params);
+        var urlActual = 'http://api.shopstyle.com/api/v2/products?pid=uid1234-12341234-1&fts=red%20dress&fl=b123&fl=r321&offset=0&limit=10';
         future.when (function (url, data) {
             test.equal(url, urlActual, "productSearch url ok");
             test.equal(data, testData, "productSearch data ok");

@@ -1,3 +1,4 @@
+var Future = require('future');
 var httpClient = require("./httpclient.js");
 
 var ShopSense = (function () {
@@ -6,6 +7,7 @@ var ShopSense = (function () {
     var _apiVersion = null;
     var _apiUrlBaseOptions = null;
     var _httpClient = function(){ return null; };
+    var _isLogging = false;
 
     /**
      * `ShopSense` constructor.
@@ -52,6 +54,11 @@ var ShopSense = (function () {
         self.shopsense.retailers = function() {
             return self.retailers.call(self);
         };
+
+
+        self.shopsense.isLogging = function(isLogging) {
+            _isLogging = isLogging;
+        };
         
         return self.shopsense;
     };
@@ -81,9 +88,19 @@ var ShopSense = (function () {
             return future;
         },
         _get: function(url, params){
+            var future = new Future();
             url += this._serialize(params);
-            var future = _httpClient(url);
+            this._log(url);
+            _httpClient(url, future);
             return future;
+        },
+        _isArray: function(what){
+            return Object.prototype.toString.call(what) === '[object Array]';
+        },
+        _log: function(dataToLog){
+            if(_isLogging){
+                console.log(dataToLog);
+            }
         },
         product: function(id) {
             if(id){
@@ -120,7 +137,13 @@ var ShopSense = (function () {
         _serialize: function(obj) {
             var str = [];
             for(var p in obj){
-                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                if(this._isArray(obj[p])){
+                    if(obj[p].length > 0){
+                        str.push("fl="+obj[p].join("&fl="));
+                    }
+                }else{
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
             }
             return str.join("&");
         }
