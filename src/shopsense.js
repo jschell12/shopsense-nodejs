@@ -89,7 +89,7 @@ var ShopSense = (function () {
         },
         _get: function(url, params){
             var future = new Future();
-            url += this._serialize(params);
+            url += this._toURLParams(params);
             this._log(url);
             _httpClient(url, future);
             return future;
@@ -134,18 +134,21 @@ var ShopSense = (function () {
             var future = this._get(url);
             return future;
         },
-        _serialize: function(obj) {
-            var str = [];
-            for(var p in obj){
-                if(this._isArray(obj[p])){
-                    if(obj[p].length > 0){
-                        str.push("fl="+obj[p].join("&fl="));
+        _toURLParams: function(obj) {
+            var parts = [];
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    var item = obj[key];
+                    if (Object.prototype.toString.call(item) === '[object Array]') {
+                        for (var i = 0; i < item.length; i++) {
+                            parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(item[i]));
+                        }
+                    } else {
+                        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(item));
                     }
-                }else{
-                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
                 }
             }
-            return str.join("&");
+            return parts.join('&');
         }
     };
     
