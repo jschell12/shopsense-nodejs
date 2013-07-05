@@ -1,6 +1,6 @@
 {
   "name": "shopsense",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shopsense API nodejs client.",
   "author": {
     "name": "Josh Schell",
