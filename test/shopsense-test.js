@@ -8,6 +8,25 @@ module.exports = {
     tearDown: function (callback) {
         callback();
     },
+    'Testing _isArray function' : function(test) {
+        var testCases = [
+            {
+                'input'     : 'potato',
+                'expected'  : false
+            },
+            {
+                'input'     : ['potato'],
+                'expected'  : true
+            },
+        ];
+
+        testCases.forEach(function(testCase) {
+            var output = ShopSense.prototype._isArray(testCase.input);
+            test.equal(output, testCase.expected, "isArray check");
+        });
+
+        test.done();
+    },
     'Testing ShopSense constructor' : function(test) {
         
         var pid = 'uid1234-12341234-1';
