@@ -1,14 +1,34 @@
-var ShopSense = require("../lib/shopsense.js").ShopSense;
+var ShopSense = require("../src/shopsense.js").ShopSense;
+var fs = require('fs');
 
-var pid = '<your-partner-id-here>';
+var pid = 'uid4384-22459372-1';
 var apiVersion = 'v2';
 var ss = new ShopSense(pid, apiVersion);
 
+ss.isLogging(true);
+
 console.log(" ");
-console.log("brands");
-ss.brands().when(function(d){
-    console.log(d.brands[0]);
+console.log("productSearch");
+ss.productSearch({
+    fts: "red dress",
+    offset: "1",
+    limit: "10"
+}).when(function(d){
+    console.log(d);
+    fs.writeFile("./logs/log"+ (new Date()).getTime() + ".json", JSON.stringify(d, null, '\t'), function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("The file was saved!");
+        }
+    }); 
 });
+
+// console.log(" ");
+// console.log("brands");
+// ss.brands().when(function(d){
+//     console.log(d.brands[0]);
+// });
 /*
 console.log(" ");
 console.log("categories");

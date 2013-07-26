@@ -24,6 +24,7 @@ module.exports = {
         
         var testData = {"test":"test"};
         var ss = new ShopSense(pid, apiVersion, function(options, future){
+            console.log("\n" + options + "\n");
             future.deliver(options, testData);
         });
        
