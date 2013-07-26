@@ -90,6 +90,17 @@ Will update this section or add some wiki pages when the package has been comple
 
 Please report any bugs found in shopsense-nodejs [here](https://github.com/jschell12/shopsense-nodejs/issues). I appreciate your help improving shopsense-nodejs
 
+## Contributing
+To contribute to this project, please create a fork of this repository. Create thoughtfully named branches and submit pull requests into the "master" branch.
+
+Getting started:
+* Clone your repository fork
+* `cd` into the directory
+* Run `npm install` to get all the dependencies
+* Run `grunt nodeunit:all` to make sure the unit tests pass
+* Hack away!
+* Write new unit tests if applicable
+* Make sure the unit tests pass before you open your pull-request (`grunt nodeunit:all`)
 
 ### Suggestions
 If you have suggestions please contact me at jschell12@gmail.com.

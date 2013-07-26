@@ -95,7 +95,7 @@ var ShopSense = (function () {
             return future;
         },
         _isArray: function(what){
-            return Object.prototype.toString.call(what) === '[object Array]';
+            return Array.isArray(what);
         },
         _log: function(dataToLog){
             if(_isLogging){
@@ -139,7 +139,7 @@ var ShopSense = (function () {
             for (var key in obj) {
                 if (obj.hasOwnProperty(key)) {
                     var item = obj[key];
-                    if (Object.prototype.toString.call(item) === '[object Array]') {
+                    if (this._isArray(item)) {
                         for (var i = 0; i < item.length; i++) {
                             parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(item[i]));
                         }
