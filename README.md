@@ -19,17 +19,10 @@ Include it in you nodejs application:
 ## Examples
 
     var ShopSense = require("shopsense");
-    var request = require('request');
-    
-    var httpClient = function(url, future){
-        request.get({url:url, json:true}, function (e, r, d) {
-            future.deliver(d);
-        });
-    };
 
     var pid = 'uid4384-22459372-1';
     var apiVersion = 'v2';
-    var ss = new ShopSense(pid, apiVersion, httpClient);
+    var ss = new ShopSense(pid, apiVersion);
 
     console.log(" ");
     console.log("brands");
